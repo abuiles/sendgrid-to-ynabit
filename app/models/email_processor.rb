@@ -10,14 +10,15 @@ class EmailProcessor
     end
 
     def process
-      Rails.logger.debug(ENV['YNABIT_API_URL'])
       uri = URI.parse(ENV['YNABIT_API_URL'])
 
       header = { 'Content-Type' =>'application/json' }
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
       request = Net::HTTP::Post.new(uri.request_uri, header)
-      request.body = { text: @email.body }.to_json
+      body = { text: @email.body }
+      request.body = body.to_json
+      Rails.logger.debug(body)
       http.request(request)
     end
 end
