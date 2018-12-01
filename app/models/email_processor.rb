@@ -14,9 +14,9 @@ class EmailProcessor
 
       header = { 'Content-Type' =>'application/json' }
       http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
+      http.use_ssl = true if uri.port == 443
       request = Net::HTTP::Post.new(uri.request_uri, header)
-      body = { text: @email.body }
+      body = { text: @email.raw_text }
       request.body = body.to_json
       Rails.logger.debug(body)
       http.request(request)
