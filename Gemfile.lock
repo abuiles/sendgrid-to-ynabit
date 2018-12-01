@@ -53,6 +53,13 @@ GEM
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    griddler (1.5.2)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-sendgrid (1.1.0)
+      griddler (>= 1.5.2)
+      mail (>= 2.7.0)
+    htmlentities (4.3.4)
     i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     listen (3.1.5)
@@ -135,6 +142,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
+  griddler (~> 1.5.2)
+  griddler-sendgrid (~> 1.1.0)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.1, >= 5.2.1.1)

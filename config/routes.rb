@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  post "/parse", action: :parse, controller: NotificationsController
+  mount_griddler('/api/v1/notifications/parse')
 end
